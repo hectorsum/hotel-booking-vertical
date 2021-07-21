@@ -1,3 +1,15 @@
+class Booking{
+  constructor(test) {
+    this.test = test;
+  }
+  printStatement(){
+    console.log('testing')
+  }
+}
+
+let test = new Booking();
+test.printStatement
+
 //Set this when DOM is loaded
 document.addEventListener('DOMContentLoaded',() => {
   const setStartDate = moment(new Date()).format("D-MMM-YY");
