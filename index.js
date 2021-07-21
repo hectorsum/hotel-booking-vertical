@@ -8,7 +8,7 @@ class Booking{
 }
 
 let test = new Booking();
-test.printStatement
+test.printStatement()
 
 //Set this when DOM is loaded
 document.addEventListener('DOMContentLoaded',() => {
