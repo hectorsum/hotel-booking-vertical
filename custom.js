@@ -9,6 +9,11 @@ new Vertical_BookingRH({
       promocode: true,
       agencygroup: false,
       button: true,
+      hotels:{
+        '555':'Hotel 01',
+        // 'ABC':'Hotel 02',
+        // 'DSG':'Hotel 03',
+      }
     },
     HO: { //Hotel Only
       aiport: false,
@@ -17,7 +22,12 @@ new Vertical_BookingRH({
       adults: true,
       promocode: false,
       agencygroup: false,
-      button: true
+      button: true,
+      hotels:{
+        '555':'Hotel 01',
+        // 'ABC':'Hotel 02',
+        // 'DSG':'Hotel 03',
+      }
     },
   }
 });
