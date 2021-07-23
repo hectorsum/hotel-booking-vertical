@@ -1,4 +1,4 @@
-class Vertical_BookingRH {
+export class Vertical_BookingRH {
   constructor({tabs = this.setDefaultTab()}) {
     this.tabs = tabs;
     //Setting up the tabs
