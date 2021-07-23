@@ -22,7 +22,8 @@ legend{
   color: #fff;
   padding: 3px 6px;
 }
-.wrapper{
+.wrapper-rh-v{
+  width: 100%;
   display:flex;
   justify-content: center;
   align-items: center;
