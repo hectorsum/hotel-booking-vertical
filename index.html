@@ -6,24 +6,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Widget Vertical</title>
   <link rel="stylesheet" href="./index.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     referrerpolicy="no-referrer" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
     integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
 </head>
 <body>
-  <div class="wrapper wrapper">
-    <div class="widget">
-      <ul class="tabs">
+  <div class="wrapper">
+    <div class="widget-rh-v" id='widget-rh-v'>
+    </div>
+  </div>
+
+  <!-- <div class="wrapper">
+    <div class="widget-rh-v" id='widget-rh-v'>
+      <ul class="tabs-rh-v">
         <li>
-          <a class="tab1 active" href="#">HOTEL + AIR</a>
+          <a class="tab1 active-tab-rh-V" href="#">HOTEL + AIR</a>
         </li>
         <li>
           <a class="tab2" href="#">HOTEL ONLY</a>
         </li>
       </ul>
-      <div class="form-input d-flex col-md-12 row m-0 body-tab1 show-active-tab">
+      <div class="form-input d-flex col-md-12 row m-0 body-tab-HA-v show-active-tab-v">
         <div class="form__group field col-md-12 px-0">
           <input type="text" class="form__field" id="airport" placeholder="Please enter your airport" autocomplete="off" required>
           <label for="airport" class="form__label">Please enter your airport</label>
@@ -40,7 +45,7 @@
           </div>
         </div>
         <div class="col-md-12 mt-3 p-0">
-          <div class="col-md-12 dropdown__field">
+          <div class="dropdown__field">
             <div class="field-icon">
               <i class="fas fa-user"></i>
             </div>
@@ -95,12 +100,12 @@
             </a>
           </div>
         </div>
-        <div id="myModal1" class="modal">
-          <div class="modal-content" id="modal-content">
+        <div id="myModal-HA" class="modal">
+          <div class="modal-content" id="modal-content-HA">
           </div>
         </div>
       </div>
-      <div class="form-input d-flex col-md-12 row m-0 body-tab2">
+      <div class="form-input d-flex col-md-12 row m-0 body-tab-HO-v">
         <div class="check-in-out col-md-12" id="check-in-out">
           <div class="check-in">
             <span class="check-in-label">CHECK-IN</span>
@@ -168,15 +173,16 @@
             </a>
           </div>
         </div>
-        <div id="myModal2" class="modal">
-          <div class="modal-content" id="modal-content2">
+        <div id="myModal-HO" class="modal">
+          <div class="modal-content" id="modal-content-HO">
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/litepicker-polyfills-ie11/dist/index.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
+  </div> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/litepicker-polyfills-ie11/dist/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script> -->
   <script src="./index.js" type="module" defer></script>
+  <script src="./custom.js" type="module"></script>
 </body>
 </html>

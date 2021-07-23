@@ -4,6 +4,7 @@
 
 :root{
   --main-color-bg:#F2F1EB;
+  --brand-color-bg: #3681E1;
 }
 body{
   font-family: 'Roboto', sans-serif;
@@ -17,7 +18,7 @@ legend{
   font-size: 12px;
   float: initial;
   width: auto;
-  background-color: #3681E1;
+  background-color: var(--brand-color-bg);
   color: #fff;
   padding: 3px 6px;
 }
@@ -27,7 +28,7 @@ legend{
   align-items: center;
   margin-top: 2rem;
 }
-.widget{
+.widget-rh-v{
   /* box-shadow: 0 5px 15px grey; */
   /* padding: 5px 10px; */
   border-radius: 5px;
@@ -37,39 +38,39 @@ legend{
   display:flex;
   flex-direction: column;
 }
-.tabs{
+.tabs-rh-v{
   display:flex;
   padding:0;
   margin:0;
 }
-.tabs li{
+.tabs-rh-v li{
   list-style: none;
   background-color: var(--main-color-bg);
   width: 50%;
   text-align: center;
 }
-.tabs li a{
+.tabs-rh-v li a{
   text-decoration: none;
   display: block;
   padding: 0.5rem 2rem;
   color:#9b9b9b;
   border-radius: 5px 5px 0 0;
 }
-.active{
-  background: #3681E1 !important;
+.active-tab-rh-V{
+  background: var(--brand-color-bg) !important;
   color:white !important;
   border-radius: 5px 5px 0 0;
   /* background: linear-gradient(90deg, rgba(17,69,139,1) 0%, rgba(51,125,228,1) 100%, rgba(255,255,255,1) 100%); */
 }
-.body-tab1,.body-tab2{
+.body-tab-HA-v,.body-tab-HO-v{
   display:none !important;
 }
-.show-active-tab{
+.show-active-tab-v{
   display: flex !important;
 }
 .form-input{
   padding: 1rem;
-  border: 3px solid #3681E1;
+  border: 3px solid var(--brand-color-bg);
   box-shadow: 0 5px 15px grey;
   
 }
@@ -129,7 +130,7 @@ legend{
   display: block;
   /* transition: 0.2s; */
   font-size: 16px;
-  color: #3681E1;
+  color: var(--brand-color-bg);
   font-weight: 600;
 }
 
@@ -244,7 +245,7 @@ display: none;
   align-items: center;
   position: relative;
   padding: 1rem 2rem;
-  box-shadow: inset 0 0 0 2px #3681E1, inset -4px -4px 0 2px #CCC;
+  box-shadow: inset 0 0 0 2px var(--brand-color-bg), inset -4px -4px 0 2px #CCC;
   background-color: #FFF;
   cursor: pointer;
 }
@@ -256,7 +257,7 @@ display: none;
   display: block;
   width: 100%;
   height: 100%;
-  background-color: #3681E1;
+  background-color: var(--brand-color-bg);
   transform-origin: 0 bottom 0;
   transform: scaleY(0);
   transition: 0.4s ease-out;
@@ -272,7 +273,7 @@ display: none;
   position: relative;
   font-size: 16px;
   margin: 0;
-  color:#3681E1;
+  color:var(--brand-color-bg);
   font-weight: 700;
   line-height: 1.333;
   transition: 0.4s ease-out;
@@ -387,7 +388,7 @@ display: none;
     align-items: center;
     justify-content: center;
   }
-  .tabs li a{
+  .tabs-rh-v li a{
     font-size: 14px;
     padding: 0.5rem 1rem;
   }
