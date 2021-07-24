@@ -35,10 +35,32 @@ export default class Vertical_BookingRH {
     //Setting whether hotels dropdown or input hidden
     if(tabs && tabs['HA'] && tabs['HA'].hotels
             && tabs['HO'] && tabs['HO'].hotels){
-      this.hotels = tabs['HA'].hotels;
-
+            // this.hotels = tabs['HO'].hotels;
+      if (Object.keys(tabs['HA'].hotels).length > 1 &&
+          Object.keys(tabs['HO'].hotels).length > 1) {
+          console.log('Both with multiple hotels')
+          this.setHotelDropdown('HA');
+          this.setOptionTag('HA', tabs['HA'].hotels)
+          this.setHotelDropdown('HO');
+          this.setOptionTag('HO', tabs['HO'].hotels)
+      }else if (Object.keys(tabs['HA'].hotels).length > 1 &&
+                Object.keys(tabs['HO'].hotels).length === 1){
+          this.setHotelDropdown('HA');
+          this.setOptionTag('HA', tabs['HA'].hotels)
+          this.setHotelInput('HO',Object.keys(tabs['HO'].hotels));
+      }else if(Object.keys(tabs['HA'].hotels).length === 1 &&
+                Object.keys(tabs['HO'].hotels).length > 1){
+          this.setHotelDropdown('HO');
+          this.setOptionTag('HO', tabs['HO'].hotels)
+          this.setHotelInput('HA',Object.keys(tabs['HA'].hotels));
+      }else if(Object.keys(tabs['HA'].hotels).length === 1 &&
+                Object.keys(tabs['HO'].hotels).length === 1){
+          this.setHotelInput('HA',Object.keys(tabs['HA'].hotels));
+          this.setHotelInput('HO',Object.keys(tabs['HO'].hotels));
+      }
     }else if (tabs && tabs['HA'] && tabs['HA'].hotels) {
       this.hotels = tabs['HA'].hotels;
+      console.log('second!')
       if (Object.keys(this.hotels).length > 1) {
         this.setHotelDropdown('HA');
         this.setOptionTag('HA', this.hotels)

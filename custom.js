@@ -11,8 +11,8 @@ new Vertical_BookingRH({
       button: true,
       hotels:{
         '555':'Hotel 01',
-        // 'ABC':'Hotel 02',
-        // 'DSG':'Hotel 03',
+        'ABC':'Hotel 02',
+        'DSG':'Hotel 03',
       }
     },
     HO: { //Hotel Only
@@ -25,8 +25,8 @@ new Vertical_BookingRH({
       button: true,
       hotels:{
         '555':'Hotel 01',
-        // 'ABC':'Hotel 02',
-        // 'DSG':'Hotel 03',
+        'ABC':'Hotel 02',
+        'DSG':'Hotel 03',
       }
     },
   }
