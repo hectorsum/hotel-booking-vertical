@@ -246,10 +246,9 @@ export default class Vertical_BookingRH {
 
       if (this.airport) {
         console.log('theres airport')
-        const airport_input = document.getElementById('autoComplete');
-
         axios.get('https://beta.reservhotel.com/smart_widget_mh/airports.json')
           .then(res => {
+            console.log('data: ',res.data)
             const autoCompleteJS = new autoComplete({
               placeHolder: "Please enter your airport",
               selector: "#autoComplete",

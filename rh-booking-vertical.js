@@ -10,7 +10,7 @@
       axiosScript = doc.createElement('script');
   //Custom CSS
   customCSS.rel = 'stylesheet';
-  customCSS.href = 'https://cdn.jsdelivr.net/gh/hectorsum/hotel-booking-vertical@rh-v1.0.4/index.css'
+  customCSS.href = 'https://cdn.jsdelivr.net/gh/hectorsum/hotel-booking-vertical@rh-v1.0.5/index.css'
   //Font Awesome
   faCSS.rel = 'stylesheet';
   // linkTag.referrerPolicy = 'no-referrer';
@@ -24,13 +24,13 @@
   axiosScript.src = 'https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js';
   //Autocomplete
   autocompleteCSS.href = 'https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.6/dist/css/autoComplete.min.css';
+  autocompleteCSS.rel = 'stylesheet';
   autocompleteScript.src = 'https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.6/dist/autoComplete.min.js';
 
   document.head.appendChild(autocompleteCSS);
   document.head.appendChild(faCSS);
-  document.head.appendChild(customCSS);
   document.head.appendChild(scriptMomentJS);
-  // headTag.appendChild(linkCss);
+  document.head.appendChild(customCSS);
 
   document.body.insertBefore(axiosScript,document.body.firstChild)
   document.body.insertBefore(autocompleteScript,document.body.firstChild)
