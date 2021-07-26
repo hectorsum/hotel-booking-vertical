@@ -10,7 +10,7 @@
       axiosScript = doc.createElement('script');
   //Custom CSS
   customCSS.rel = 'stylesheet';
-  customCSS.href = 'https://cdn.jsdelivr.net/gh/hectorsum/hotel-booking-vertical@rh/index.css'
+  customCSS.href = 'https://cdn.jsdelivr.net/gh/hectorsum/hotel-booking-vertical@rh-v1.0.2/index.css'
   //Font Awesome
   faCSS.rel = 'stylesheet';
   // linkTag.referrerPolicy = 'no-referrer';
