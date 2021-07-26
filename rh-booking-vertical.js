@@ -8,16 +8,16 @@
       scriptJS = doc.createElement('script');
   //Custom CSS
   linkCss.rel = 'stylesheet';
-  linkCss.href = 'https://cdn.jsdelivr.net/gh/hectorsum/hotel-booking-vertical@test/index.css'
+  linkCss.href = 'https://cdn.jsdelivr.net/gh/hectorsum/hotel-booking-vertical@reservhotel/index.css'
   //Font Awesome
   linkTag.rel = 'stylesheet';
-  linkTag.referrerPolicy = 'no-referrer';
+  // linkTag.referrerPolicy = 'no-referrer';
   linkTag.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css';
   //MomentJS
   scriptTag.src = 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js';
-  scriptTag.integrity = 'sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==';
-  scriptTag.crossOrigin = 'anonymous';
-  scriptTag.referrerPolicy = 'no-referrer';
+  // scriptTag.integrity = 'sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==';
+  // scriptTag.crossOrigin = 'anonymous';
+  // scriptTag.referrerPolicy = 'no-referrer';
   //LitePicker
   scriptLitePicker.src = 'https://cdn.jsdelivr.net/npm/litepicker-polyfills-ie11/dist/index.js';
   scriptLitePicker2.src = 'https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js';

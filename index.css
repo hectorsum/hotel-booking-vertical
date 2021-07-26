@@ -6,15 +6,15 @@
   --main-color-bg:#F2F1EB;
   --brand-color-bg: #3681E1;
 }
-body{
+.widget-rh-v legend{
   font-family: 'Roboto', sans-serif;
   font-family: "DM Sans", sans-serif;
 }
-fieldset{
+.widget-rh-v fieldset{
   border: 3px solid #ccc;
   margin-bottom: 1rem;
 }
-legend{
+.widget-rh-v legend{
   font-size: 12px;
   float: initial;
   width: auto;
@@ -35,41 +35,41 @@ legend{
   border-radius: 5px;
   width: 40%;
 }
-.input-wrapper{
+.widget-rh-v .input-wrapper{
   display:flex;
   flex-direction: column;
 }
-.tabs-rh-v{
+.widget-rh-v .tabs-rh-v{
   display:flex;
   padding:0;
   margin:0;
 }
-.tabs-rh-v li{
+.widget-rh-v .tabs-rh-v li{
   list-style: none;
   background-color: var(--main-color-bg);
   width: 50%;
   text-align: center;
 }
-.tabs-rh-v li a{
+.widget-rh-v .tabs-rh-v li a{
   text-decoration: none;
   display: block;
   padding: 0.5rem 2rem;
   color:#9b9b9b;
   border-radius: 5px 5px 0 0;
 }
-.active-tab-rh-V{
+.widget-rh-v .active-tab-rh-V{
   background: var(--brand-color-bg) !important;
   color:white !important;
   border-radius: 5px 5px 0 0;
   /* background: linear-gradient(90deg, rgba(17,69,139,1) 0%, rgba(51,125,228,1) 100%, rgba(255,255,255,1) 100%); */
 }
-.body-tab-HA-v,.body-tab-HO-v{
+.widget-rh-v .body-tab-HA-v, .widget-rh-v .body-tab-HO-v{
   display:none !important;
 }
-.show-active-tab-v{
+.widget-rh-v .show-active-tab-v{
   display: flex !important;
 }
-.form-input{
+.widget-rh-v .form-input{
   padding: 1rem;
   border: 3px solid var(--brand-color-bg);
   box-shadow: 0 5px 15px grey;
@@ -77,7 +77,7 @@ legend{
 }
 
 /* Text Fields */
-.form__group {
+.widget-rh-v .form__group {
   position: relative;
   /* padding: 15px 0 0; */
   padding-top: 15px;
@@ -86,7 +86,7 @@ legend{
   margin-bottom: 1rem;
 }
 
-.form__field {
+.widget-rh-v .form__field {
   font-family: inherit;
   width: 100%;
   border: 0;
@@ -98,16 +98,16 @@ legend{
   background: transparent;
   transition: border-color 0.2s;
 }
-.form__field::placeholder {
+.widget-rh-v .form__field::placeholder {
   color: transparent;
 }
-.form__field:placeholder-shown ~ .form__label {
+.widget-rh-v .form__field:placeholder-shown ~ .form__label {
   font-size: 16px;
   cursor: text;
   top: 20px;
 }
 
-.form__label {
+.widget-rh-v .form__label {
   position: absolute;
   top: 0;
   display: block;
@@ -116,7 +116,7 @@ legend{
   color: #9b9b9b;
 }
 
-.form__field:focus {
+.widget-rh-v .form__field:focus {
   padding-bottom: 6px;
   /* font-weight: 700; */
   border-width: 1px;
@@ -125,7 +125,7 @@ legend{
   opacity: 1;
   border-image-slice: 1;
 }
-.form__field:focus ~ .form__label {
+.widget-rh-v .form__field:focus ~ .form__label {
   position: absolute;
   top: 0;
   display: block;
@@ -136,12 +136,12 @@ legend{
 }
 
 /* reset input */
-.form__field:required, .form__field:invalid {
+.widget-rh-v .form__field:required, .form__field:invalid {
   box-shadow: none;
 }
 
 /* Select Fields */
-.selectdiv {
+.widget-rh-v .selectdiv {
   position: relative;
   width: 100%;
   /*Don't really need this just for demo styling*/  
@@ -150,15 +150,15 @@ legend{
   margin: 50px 33%; */
 }
 
-.selectdiv label {
+.widget-rh-v .selectdiv label {
   width:100%;
 }
 
-select::-ms-expand {
+.widget-rh-v select::-ms-expand {
 display: none;
 }
 
-.selectdiv:after {
+.widget-rh-v .selectdiv:after {
   content: '<>';
   font: 17px "Consolas", monospace;
   color: #333;
@@ -178,7 +178,7 @@ display: none;
   pointer-events: none;
 }
 
-.selectdiv select {
+.widget-rh-v .selectdiv select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -202,7 +202,7 @@ display: none;
 }
 
 /* Field Icon */
-.field-icon{
+.widget-rh-v .field-icon{
   display: flex;
   height: 50px;
   width: 50px;
@@ -212,31 +212,31 @@ display: none;
   justify-content: center;
   align-items: center;
 }
-.dropdown-wrapper{
+.widget-rh-v .dropdown-wrapper{
   display:flex; 
   align-items: center;
   padding-right: 0;
   /* flex-direction:column; */
 }
-.dropdown__field{
-  display:flex; 
+.widget-rh-v .dropdown__field{
+  display:fl ex; 
   flex-direction:row;
   width: 100%;
 }
-.dropdown__field:first-child{
+.widget-rh-v .dropdown__field:first-child{
   margin-right: 0.5rem;
 }
 
 /* Button Style */
 
-.button-container {
+.widget-rh-v .button-container {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   padding: 0;
 }
 
-.post {
+.widget-rh-v .post {
   display: flex;
   text-decoration: none;
   color: inherit;
@@ -251,7 +251,7 @@ display: none;
   cursor: pointer;
   border:none;
 }
-.post:before {
+.widget-rh-v .post:before {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -264,14 +264,14 @@ display: none;
   transform: scaleY(0);
   transition: 0.4s ease-out;
 }
-.post:hover .post-title {
+.widget-rh-v .post:hover .post-title {
   color: #FFF;
 }
-.post:hover:before {
+.widget-rh-v .post:hover:before {
   transform: scaleY(1);
 }
 
-.post-title {
+.widget-rh-v .post-title {
   position: relative;
   font-size: 16px;
   margin: 0;
@@ -281,18 +281,18 @@ display: none;
   transition: 0.4s ease-out;
 }
 
-.check-in-out{
+.widget-rh-v .check-in-out{
   display: flex;
   justify-content: center;
   /* border: 2px solid #ccc; */
 }
-.check-in-out:hover{
+.widget-rh-v .check-in-out:hover{
   background-color: #f5f5f5;
   /* transition: all 1s ease; */
   cursor: pointer;
   border: 1px dashed #ccc;
 }
-.check-in, .check-out{
+.widget-rh-v .check-in, .widget-rh-v .check-out{
   color:#ccc;
   width: 43%;
   display: flex;
@@ -301,14 +301,14 @@ display: none;
   align-items: center;
   font-size: 16px;
 }
-.check-in-label,.check-out-label{
+.widget-rh-v .check-in-label, .widget-rh-v .check-out-label{
   font-weight: bold;
 }
-.check-out-date,.check-in-date{
+.widget-rh-v .check-out-date, .widget-rh-v .check-in-date{
   font-size: 22px;
   color: #181818;
 }
-.check-in-out-arrow{
+.widget-rh-v .check-in-out-arrow{
   color: #181818;
   width: 14%;
   font-size: 20px;
@@ -317,15 +317,15 @@ display: none;
   align-items: center;
 }
 
-.body-tab2 .check-in, .body-tab2 .check-out{
+.widget-rh-v .body-tab2 .check-in, .body-tab2 .check-out{
   align-items: center;
 }
-.body-tab2 .check-in-out-arrow{
+.widget-rh-v .body-tab2 .check-in-out-arrow{
   justify-content: center;
 }
 
 /* Modal Popup */
-.modal {
+.widget-rh-v .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -339,7 +339,7 @@ display: none;
 }
 
 /* Modal Content/Box */
-.modal-content {
+.widget-rh-v .modal-content {
   /* background-color: #fefefe; */
   background-color: transparent;
   margin: 15% auto; /* 15% from the top and centered */
@@ -349,7 +349,7 @@ display: none;
   width: 80%; /* Could be more or less, depending on screen size */
 }
 
-.litepicker{
+.widget-rh-v .litepicker{
   left: 25% !important;
   bottom: 50% !important;
 }
@@ -359,25 +359,25 @@ display: none;
   .widget-rh-v{
     width:60%;
   }
-  .check-in, .check-out{
+  .widget-rh-v .check-in, .check-out{
     align-items: center;
   }
-  .check-in-out-arrow{
+  .widget-rh-v .check-in-out-arrow{
     justify-content:center;
   }
-  .dropdown-wrapper{  
+  .widget-rh-v .dropdown-wrapper{  
     /* padding: inherit; */
     padding: 0;
     margin-top: 1rem;
   }
-  .dropdown-wrapper{
+  .widget-rh-v .dropdown-wrapper{
     display: flex;
     flex-direction: column;
   }
-  .dropdown__field:first-child{
+  .widget-rh-v .dropdown__field:first-child{
     margin:0;
   }
-  .button-wrapper{
+  .widget-rh-v .button-wrapper{
     padding: initial;
   }
   
@@ -386,24 +386,24 @@ display: none;
   .widget-rh-v{
     width:80%;
   }
-  .form__group{
+  .widget-rh-v .form__group{
     padding: 0;
     padding-top: 15px;
   }
-  .post{
+  .widget-rh-v .post{
     width:100%;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  .tabs-rh-v li a{
+  .widget-rh-v .tabs-rh-v li a{
     font-size: 14px;
     padding: 0.5rem 1rem;
   }
-  .check-in, .check-out, .check-in-out-arrow{
+  .widget-rh-v .check-in, .widget-rh-v .check-out, .widget-rh-v .check-in-out-arrow{
     font-size: 14px;
   }
-  .check-out-date, .check-in-date{
+  .widget-rh-v .check-out-date, .widget-rh-v .check-in-date{
     font-size: 18px;
   }
 }
