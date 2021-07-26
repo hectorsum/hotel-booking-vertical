@@ -5,6 +5,9 @@
 :root{
   --main-color-bg:#F2F1EB;
   --brand-color-bg: #3681E1;
+  --color-text-fg: #333;
+  --figures-color: #181818;
+  --placeholder-color: #9b9b9b;
 }
 .widget-rh-v legend{
   font-family: 'Roboto', sans-serif;
@@ -54,7 +57,7 @@
   text-decoration: none;
   display: block;
   padding: 0.5rem 2rem;
-  color:#9b9b9b;
+  color:var(--placeholder-color);;
   border-radius: 5px 5px 0 0;
 }
 .widget-rh-v .active-tab-rh-V{
@@ -77,6 +80,10 @@
 }
 
 /* Text Fields */
+.widget-rh-v select {
+  cursor: pointer;
+  outline: none;
+}
 .widget-rh-v .form__group {
   position: relative;
   /* padding: 15px 0 0; */
@@ -93,7 +100,7 @@
   border-bottom: 1px solid black;
   outline: 0;
   font-size: 16px;
-  color: #333;
+  color: var(--color-text-fg);
   padding: 7px 0;
   background: transparent;
   transition: border-color 0.2s;
@@ -113,7 +120,7 @@
   display: block;
   transition: 0.2s;
   font-size: 1rem;
-  color: #9b9b9b;
+  color: var(--placeholder-color);;
 }
 
 .widget-rh-v .form__field:focus {
@@ -211,6 +218,7 @@ display: none;
   margin: 5px 0px;
   justify-content: center;
   align-items: center;
+  color:var(--figures-color);;
 }
 .widget-rh-v .dropdown-wrapper{
   display:flex; 
@@ -219,7 +227,7 @@ display: none;
   /* flex-direction:column; */
 }
 .widget-rh-v .dropdown__field{
-  display:fl ex; 
+  display:flex; 
   flex-direction:row;
   width: 100%;
 }
@@ -306,10 +314,10 @@ display: none;
 }
 .widget-rh-v .check-out-date, .widget-rh-v .check-in-date{
   font-size: 22px;
-  color: #181818;
+  color: var(--figures-color);;
 }
 .widget-rh-v .check-in-out-arrow{
-  color: #181818;
+  color: var(--figures-color);;
   width: 14%;
   font-size: 20px;
   display: flex;
@@ -349,11 +357,29 @@ display: none;
   width: 80%; /* Could be more or less, depending on screen size */
 }
 
-.widget-rh-v .litepicker{
-  left: 25% !important;
-  bottom: 50% !important;
+.litepicker{
+  left: 0 !important;
+  right: 0 !important;
+  margin: auto;
+  width: fit-content;
 }
-
+.autoComplete_wrapper{
+  width: 100% !important;
+}
+.autoComplete_wrapper>input{
+  border-radius: 0 !important;
+  /* margin-top: 1rem !important; */
+  width: 100% !important;
+  border: .05rem solid #ccc !important;
+  color: var(--color-text-fg) !important;
+  background-image: url('./images/search.svg') !important;
+}
+.autoComplete_wrapper>input::placeholder{
+  color: var(--placeholder-color) !important;
+}
+.autoComplete_wrapper>input:hover{
+  color: var(--color-text-fg) !important;
+}
 
 @media (max-width:768px){
   .widget-rh-v{

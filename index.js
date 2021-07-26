@@ -5,6 +5,7 @@ export default class Vertical_BookingRH {
     // this.loadLibraries();
     this.init();
     this.tabs = tabs;
+    this.airport = tabs['HA'].aiport ? tabs['HA'].aiport : "";
     this.hotels = {};
 
     //Setting up the tabs
@@ -33,47 +34,47 @@ export default class Vertical_BookingRH {
     // }
 
     //Setting whether hotels dropdown or input hidden
-    if(tabs && tabs['HA'] && tabs['HA'].hotels
-            && tabs['HO'] && tabs['HO'].hotels){
-            // this.hotels = tabs['HO'].hotels;
+    if (tabs && tabs['HA'] && tabs['HA'].hotels &&
+      tabs['HO'] && tabs['HO'].hotels) {
+      // this.hotels = tabs['HO'].hotels;
       if (Object.keys(tabs['HA'].hotels).length > 1 &&
-          Object.keys(tabs['HO'].hotels).length > 1) {
-          console.log('Both with multiple hotels')
-          this.setHotelDropdown('HA');
-          this.setOptionTag('HA', tabs['HA'].hotels)
-          this.setHotelDropdown('HO');
-          this.setOptionTag('HO', tabs['HO'].hotels)
-      }else if (Object.keys(tabs['HA'].hotels).length > 1 &&
-                Object.keys(tabs['HO'].hotels).length === 1){
-          this.setHotelDropdown('HA');
-          this.setOptionTag('HA', tabs['HA'].hotels)
-          this.setHotelInput('HO',Object.keys(tabs['HO'].hotels));
-      }else if(Object.keys(tabs['HA'].hotels).length === 1 &&
-                Object.keys(tabs['HO'].hotels).length > 1){
-          this.setHotelDropdown('HO');
-          this.setOptionTag('HO', tabs['HO'].hotels)
-          this.setHotelInput('HA',Object.keys(tabs['HA'].hotels));
-      }else if(Object.keys(tabs['HA'].hotels).length === 1 &&
-                Object.keys(tabs['HO'].hotels).length === 1){
-          this.setHotelInput('HA',Object.keys(tabs['HA'].hotels));
-          this.setHotelInput('HO',Object.keys(tabs['HO'].hotels));
+        Object.keys(tabs['HO'].hotels).length > 1) {
+        console.log('Both with multiple hotels')
+        this.setHotelDropdown('HA');
+        this.setOptionTag('HA', tabs['HA'].hotels)
+        this.setHotelDropdown('HO');
+        this.setOptionTag('HO', tabs['HO'].hotels)
+      } else if (Object.keys(tabs['HA'].hotels).length > 1 &&
+        Object.keys(tabs['HO'].hotels).length === 1) {
+        this.setHotelDropdown('HA');
+        this.setOptionTag('HA', tabs['HA'].hotels)
+        this.setHotelInput('HO', Object.keys(tabs['HO'].hotels));
+      } else if (Object.keys(tabs['HA'].hotels).length === 1 &&
+        Object.keys(tabs['HO'].hotels).length > 1) {
+        this.setHotelDropdown('HO');
+        this.setOptionTag('HO', tabs['HO'].hotels)
+        this.setHotelInput('HA', Object.keys(tabs['HA'].hotels));
+      } else if (Object.keys(tabs['HA'].hotels).length === 1 &&
+        Object.keys(tabs['HO'].hotels).length === 1) {
+        this.setHotelInput('HA', Object.keys(tabs['HA'].hotels));
+        this.setHotelInput('HO', Object.keys(tabs['HO'].hotels));
       }
-    }else if (tabs && tabs['HA'] && tabs['HA'].hotels) {
+    } else if (tabs && tabs['HA'] && tabs['HA'].hotels) {
       this.hotels = tabs['HA'].hotels;
       console.log('second!')
       if (Object.keys(this.hotels).length > 1) {
         this.setHotelDropdown('HA');
         this.setOptionTag('HA', this.hotels)
-      }else{
-        this.setHotelInput('HA',Object.keys(this.hotels));
+      } else {
+        this.setHotelInput('HA', Object.keys(this.hotels));
       }
-    }else if (tabs && tabs['HO'] && tabs['HO'].hotels){
+    } else if (tabs && tabs['HO'] && tabs['HO'].hotels) {
       this.hotels = tabs['HO'].hotels;
       if (Object.keys(this.hotels).length > 1) {
         this.setHotelDropdown('HO');
         this.setOptionTag('HO', this.hotels)
-      }else{
-        this.setHotelInput('HO',Object.keys(this.hotels));
+      } else {
+        this.setHotelInput('HO', Object.keys(this.hotels));
       }
     }
 
@@ -90,15 +91,15 @@ export default class Vertical_BookingRH {
 
     //Setting up adults field
     if (tabs && tabs['HA'] && tabs['HA'].adults &&
-    tabs['HO'] && tabs['HO'].adults) {
-    this.setAdults('HA')
-    this.setAdults('HO')
+      tabs['HO'] && tabs['HO'].adults) {
+      this.setAdults('HA')
+      this.setAdults('HO')
     } else if (tabs && tabs['HA'] && tabs['HA'].adults) {
-    console.log('setting airport')
-    this.setAdults('HA')
+      console.log('setting airport')
+      this.setAdults('HA')
     } else if (tabs && tabs['HO'] && tabs['HO'].adults) {
-    console.log('setting airport')
-    this.setAdults('HO')
+      console.log('setting airport')
+      this.setAdults('HO')
     }
 
     //Setting up children field
@@ -242,6 +243,69 @@ export default class Vertical_BookingRH {
           })
         })
       })
+
+      if (this.airport) {
+        console.log('theres airport')
+        const airport_input = document.getElementById('autoComplete');
+
+        axios.get('https://beta.reservhotel.com/smart_widget_mh/airports.json')
+          .then(res => {
+            const autoCompleteJS = new autoComplete({
+              placeHolder: "Please enter your airport",
+              selector: "#autoComplete",
+              data: {
+                src: res.data.airports,
+                keys: ["AI_NAME"],
+              },
+              resultsList: {
+                element: (list, data) => {
+                  console.log(data)
+                  if (!data.results.length) {
+                    // Create "No Results" message element
+                    const message = document.createElement("div");
+                    message.setAttribute("class", "no_result");
+                    message.innerHTML = `<span>Found No Results for "${data.query}"</span>`;
+                    list.prepend(message);
+                  }
+                },
+                noResults: true,
+                maxResults: 15,
+                tabSelect: true
+              },
+              resultItem: {
+                element: (item, data) => {
+                  // Modify Results Item Style
+                  item.style = "display: flex; justify-content: space-between;";
+                  // Modify Results Item Content
+                  item.innerHTML = `
+                  <span style="color:#181818; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
+                    ${data.match}
+                  </span>
+                  <span style="display: flex; align-items: center; font-size: 13px; font-weight: 100; text-transform: uppercase; color: rgba(0,0,0,.2);">
+                    AIRPORT
+                  </span>`;
+                },
+                // highlight: true
+              },
+              events: {
+                input: {
+                  selection: (event) => {
+                    console.log(event.detail.selection.value.AI_NAME)
+                    const selection = event.detail.selection.value.AI_NAME;
+                    const airport_code = event.detail.selection.value.AI_ID;
+                    // let store_to_hidden = document.getElementById('airport-hidden').value;
+                    autoCompleteJS.input.value = selection;
+                    document.getElementById('airport-hidden').value = airport_code;
+                    console.log(document.getElementById('airport-hidden').value)
+                  }
+                }
+              }
+            });
+          })
+          .catch(err => console.log(err))
+
+      }
+
       const setStartDate = moment(new Date()).format("D-MMM-YY");
       const setEndDate = moment(new Date()).add(1, 'days').format("D-MMM-YY");
       //setting up dates to both tabs
@@ -589,8 +653,10 @@ export default class Vertical_BookingRH {
     let airportDiv = document.createElement("div")
     airportDiv.className = "form__group field col-md-12 px-0"
     airportDiv.innerHTML = `
-      <input type="text" class="form__field" id="airport-${tabInitials}" placeholder="Please enter your airport" autocomplete="off" required>
-      <label for="airport-${tabInitials}" class="form__label">Please enter your airport</label>
+      <div class="autoComplete_wrapper">
+        <input id="autoComplete" type="search" autocomplete="off">
+        <input type="hidden" name="airport" id="airport-hidden"/>
+      </div>
     `;
     bodytab.append(airportDiv)
   }
@@ -612,7 +678,7 @@ export default class Vertical_BookingRH {
     `;
     bodytab.appendChild(childrenDiv);
   }
-  setHotelInput(tabInitials,value) {
+  setHotelInput(tabInitials, value) {
     if (!tabInitials) throw Error('Airport parameter must receive a tab initials. i.e: HO/HA')
     const bodytab = document.getElementById(`myform_${tabInitials}_v`);
     let input = document.createElement("input")
@@ -648,7 +714,7 @@ export default class Vertical_BookingRH {
     let checkout = document.getElementById(`check-out-date-${tabInitials}`).value;
     let airport = document.getElementById(`airport-${tabInitials}`)
     let button = document.getElementById(`btnSubmit-${tabInitials}`);
-    if(checkin && checkout){
+    if (checkin && checkout) {
       var i, month, month2;
       for (i = 0; i < 12; i++) {
         if (monthname[i] == checkin.substring(3, 6)) {

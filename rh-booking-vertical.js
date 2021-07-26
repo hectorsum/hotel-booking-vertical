@@ -8,7 +8,7 @@
       scriptJS = doc.createElement('script');
   //Custom CSS
   linkCss.rel = 'stylesheet';
-  linkCss.href = 'https://cdn.jsdelivr.net/gh/hectorsum/hotel-booking-vertical@reservhotel/index.css'
+  linkCss.href = 'https://cdn.jsdelivr.net/gh/hectorsum/hotel-booking-vertical@rh/index.css'
   //Font Awesome
   linkTag.rel = 'stylesheet';
   // linkTag.referrerPolicy = 'no-referrer';
@@ -26,7 +26,7 @@
 
   document.head.appendChild(scriptTag);
   headTag.appendChild(linkTag);
-  headTag.appendChild(linkCss);
+  // headTag.appendChild(linkCss);
   document.body.insertBefore(scriptLitePicker,document.body.firstChild)
   document.body.insertBefore(scriptLitePicker2,document.body.firstChild)
   // headTag.appendChild(scriptLitePicker);
