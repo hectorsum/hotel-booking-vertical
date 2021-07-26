@@ -28,6 +28,7 @@
 
   document.head.appendChild(autocompleteCSS);
   document.head.appendChild(faCSS);
+  document.head.appendChild(customCSS);
   document.head.appendChild(scriptMomentJS);
   // headTag.appendChild(linkCss);
 
