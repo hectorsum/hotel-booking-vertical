@@ -1,32 +1,38 @@
 (function(doc,tag,i){
   let headTag = doc.getElementsByTagName(tag)[0], 
-      linkCss = doc.createElement('link'),
-      linkTag = doc.createElement('link'), 
-      scriptTag = doc.createElement('script'), 
+      customCSS = doc.createElement('link'),
+      faCSS = doc.createElement('link'), 
+      scriptMomentJS = doc.createElement('script'), 
       scriptLitePicker = doc.createElement('script'), 
       scriptLitePicker2 = doc.createElement('script'),
-      scriptJS = doc.createElement('script');
+      autocompleteScript = doc.createElement('script'),
+      autocompleteCSS = doc.createElement('link'),
+      axiosScript = doc.createElement('script');
   //Custom CSS
-  linkCss.rel = 'stylesheet';
-  linkCss.href = 'https://cdn.jsdelivr.net/gh/hectorsum/hotel-booking-vertical@rh/index.css'
+  customCSS.rel = 'stylesheet';
+  customCSS.href = 'https://cdn.jsdelivr.net/gh/hectorsum/hotel-booking-vertical@rh/index.css'
   //Font Awesome
-  linkTag.rel = 'stylesheet';
+  faCSS.rel = 'stylesheet';
   // linkTag.referrerPolicy = 'no-referrer';
-  linkTag.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css';
+  faCSS.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css';
   //MomentJS
-  scriptTag.src = 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js';
-  // scriptTag.integrity = 'sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==';
-  // scriptTag.crossOrigin = 'anonymous';
-  // scriptTag.referrerPolicy = 'no-referrer';
+  scriptMomentJS.src = 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js';
   //LitePicker
   scriptLitePicker.src = 'https://cdn.jsdelivr.net/npm/litepicker-polyfills-ie11/dist/index.js';
   scriptLitePicker2.src = 'https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js';
-  //Custom JS
-  // scriptJS.src = 'https://cdn.jsdelivr.net/gh/hectorsum/hotel-booking-vertical@master/index.js';
+  //Axios
+  axiosScript.src = 'https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js';
+  //Autocomplete
+  autocompleteCSS.href = 'https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.6/dist/css/autoComplete.min.css';
+  autocompleteScript.src = 'https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.6/dist/autoComplete.min.js';
 
-  document.head.appendChild(scriptTag);
-  headTag.appendChild(linkTag);
+  document.head.appendChild(autocompleteCSS);
+  document.head.appendChild(faCSS);
+  document.head.appendChild(scriptMomentJS);
   // headTag.appendChild(linkCss);
+
+  document.body.insertBefore(axiosScript,document.body.firstChild)
+  document.body.insertBefore(autocompleteScript,document.body.firstChild)
   document.body.insertBefore(scriptLitePicker,document.body.firstChild)
   document.body.insertBefore(scriptLitePicker2,document.body.firstChild)
   // headTag.appendChild(scriptLitePicker);
