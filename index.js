@@ -7,7 +7,8 @@ export default class Vertical_BookingRH {
     this.tabs = tabs;
     this.airport = tabs['HA'].aiport ? tabs['HA'].aiport : "";
     this.hotels = {};
-
+    this.buttons = [tabs['HA'].button && tabs['HA'].button, tabs['HO'].button && tabs['HO'].button];
+    
     //Setting up the tabs
     if (this.tabs) {
       if (this.tabs['HA'] && this.tabs['HO']) {
@@ -243,12 +244,25 @@ export default class Vertical_BookingRH {
           })
         })
       })
-
+      //Validating that every button returns true
+      if (this.buttons.every(e => e === true)) {
+        document.querySelectorAll('#widget-rh-v .post').forEach(item => {
+          item.addEventListener('click', e => {
+            if (e.target.id === 'btnSubmit-HA') {
+              const airport = document.getElementById('airport-hidden').value;
+              if (airport === "") {
+                alert('Please select an airport');
+                return false;
+              }
+              document.getElementById('myform_HA_h').submit();
+            }
+          })
+        });
+      }
       if (this.airport) {
         console.log('theres airport')
         axios.get('https://beta.reservhotel.com/smart_widget_mh/airports.json')
           .then(res => {
-            console.log('data: ',res.data)
             const autoCompleteJS = new autoComplete({
               placeHolder: "Please enter your airport",
               selector: "#autoComplete",
@@ -258,7 +272,6 @@ export default class Vertical_BookingRH {
               },
               resultsList: {
                 element: (list, data) => {
-                  console.log(data)
                   if (!data.results.length) {
                     // Create "No Results" message element
                     const message = document.createElement("div");
@@ -470,7 +483,7 @@ export default class Vertical_BookingRH {
     buttonDiv.className = 'col-md-12 p-0 mt-2';
     buttonDiv.innerHTML = `
     <div class="button-container">
-      <button type="submit" class="post" id="btnSubmit-${tabInitials}">
+      <button type="button" class="post" id="btnSubmit-${tabInitials}">
         <h2 class="post-title">Find Rates</h2>
       </button>
     </div>
@@ -727,9 +740,7 @@ export default class Vertical_BookingRH {
       dD.setFullYear("20" + dateText2.substring(7), month2, dateText2.substring(0, 2));
     }
 
-    if (!checkin) { //Check if arrival date has been selected
-      // document.getElementById("error").innerHTML = "Select your arrival date";
-      // $("#dialog").dialog("open");
+    if (!checkin) {
       console.log('Select your arrival date')
     } else if (!checkout) { //Check if departure date has been selected
       // document.getElementById("error").innerHTML = "Select your departure date";
@@ -744,14 +755,6 @@ export default class Vertical_BookingRH {
       // $("#dialog").dialog("open");
       console.log('Packages must have be select at least 5 days from today.');
     } else {
-      //check affiliate and add hidden attribute to the form
-      // if (AFFILIATE != "") {
-      //   var field3 = document.createElement("input");
-      //   field3.setAttribute("type", "hidden");
-      //   field3.setAttribute("value", AFFILIATE);
-      //   field3.setAttribute("name", "aff");
-      //   document.getElementById("myform").appendChild(field3);
-      // }
       button.submit();
     }
   }
