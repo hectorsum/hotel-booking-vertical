@@ -260,18 +260,15 @@ export default class Vertical_BookingRH {
         });
       }
       if (this.airport) {
-        // let config = 
-        // let response = this.isConstructor(autoComplete)
-        // console.log('response: ', response)
-        new autoComplete({
+        let autocompleteInput = document.querySelector('#autoComplete');
+        let config = {
           placeHolder: "Please enter your airport",
           selector: "#autoComplete",
           data: {
             src: async (query) => {
               try {
-                const source = await fetch('https://www.reservhotel.com/win/owa/ibe5.get_airport_json?p_search=');
+                const source = await fetch(`https://www.reservhotel.com/win/owa/ibe5.get_airport_json?p_search=${autocompleteInput.value}`);
                 const airports = await source.json();
-                console.log('airports: ',airports)
                 return airports;
               } catch (error) {
                 return error;
@@ -332,11 +329,11 @@ export default class Vertical_BookingRH {
                 const autoCompleteJS = document.getElementById('autoComplete');
                 autoCompleteJS.value = selection;
                 document.getElementById('airport-hidden').value = airport_code;
-                console.log(document.getElementById('airport-hidden').value)
               }
             }
           }
-        });
+        }
+        new autoComplete(config);
       }
       const setStartDate = moment(new Date()).format("D-MMM-YY");
       const setEndDate = moment(new Date()).add(1, 'days').format("D-MMM-YY");
