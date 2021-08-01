@@ -1,4 +1,7 @@
-import Vertical_BookingRH from './index.js';
+import {
+  Vertical_BookingRH
+} from './index.js';
+
 new Vertical_BookingRH({
   tabs: {
     HA: { //Hotel + Airport
@@ -9,10 +12,10 @@ new Vertical_BookingRH({
       promocode: true,
       agencygroup: false,
       button: true,
-      hotels:{
-        '555':'Hotel 01',
-        'ABC':'Hotel 02',
-        'DSG':'Hotel 03',
+      hotels: {
+        '555': 'Hotel 01',
+        'ABC': 'Hotel 02',
+        'DSG': 'Hotel 03',
       }
     },
     HO: { //Hotel Only
@@ -23,10 +26,10 @@ new Vertical_BookingRH({
       promocode: false,
       agencygroup: false,
       button: true,
-      hotels:{
-        '555':'Hotel 01',
-        'ABC':'Hotel 02',
-        'DSG':'Hotel 03',
+      hotels: {
+        '555': 'Hotel 01',
+        'ABC': 'Hotel 02',
+        'DSG': 'Hotel 03',
       }
     },
   }

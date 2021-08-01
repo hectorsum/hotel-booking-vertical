@@ -1,4 +1,3 @@
-import {url} from './link.js'
 export default class Vertical_BookingRH {
   constructor({
     tabs = this.setDefaultTab()
@@ -261,33 +260,35 @@ export default class Vertical_BookingRH {
         });
       }
       if (this.airport) {
-        let config = {
+        // let config = 
+        // let response = this.isConstructor(autoComplete)
+        // console.log('response: ', response)
+        new autoComplete({
           placeHolder: "Please enter your airport",
           selector: "#autoComplete",
           data: {
             src: async (query) => {
               try {
-                const source = await fetch(url);
-                const {
-                  airports
-                } = await source.json();
+                const source = await fetch('https://www.reservhotel.com/win/owa/ibe5.get_airport_json?p_search=');
+                const airports = await source.json();
+                console.log('airports: ',airports)
                 return airports;
               } catch (error) {
                 return error;
               }
             },
-            keys: ["AI_ID", "AI_NAME"],
+            keys: ["value", "label"],
             cache: false,
             filter: (list) => {
-              let filtered;
-              let input;
-              input = document.querySelector('#autoComplete').value;
-              if(input.length > 0 && input.length <= 3){
-                filtered = list.filter(item => item.key === "AI_ID")
-              }else if (input.length > 3){
-                filtered = list.filter(item => item.key === "AI_NAME")
-              }
-              return filtered;
+              // let filtered;
+              // let input;
+              // input = document.querySelector('#autoComplete').value;
+              // if(input.length > 0 && input.length <= 3){
+              //   filtered = list.filter(item => item.key === "AI_ID")
+              // }else if (input.length > 3){
+              //   filtered = list.filter(item => item.key === "AI_NAME")
+              // }
+              return list;
             }
           },
           resultsList: {
@@ -313,7 +314,7 @@ export default class Vertical_BookingRH {
               // Modify Results Item Content
               item.innerHTML = `
                     <span style="color:#181818; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
-                    ${data.value.AI_ID} - ${data.value.AI_NAME}
+                    ${data.value.label}
                     </span>
                     <span style="display: flex; align-items: center; font-size: 13px; font-weight: 100; text-transform: uppercase; color: rgba(0,0,0,.2);">
                       AIRPORT
@@ -324,20 +325,18 @@ export default class Vertical_BookingRH {
           events: {
             input: {
               selection: (event) => {
-                console.log(event.detail.selection.value.AI_NAME)
-                const selection = event.detail.selection.value.AI_NAME;
-                const airport_code = event.detail.selection.value.AI_ID;
+                // console.log(event.detail.selection.value.AI_NAME)
+                const selection = event.detail.selection.value.label;
+                const airport_code = event.detail.selection.value.value;
                 // let store_to_hidden = document.getElementById('airport-hidden').value;
-                autoCompleteJS.input.value = selection;
+                const autoCompleteJS = document.getElementById('autoComplete');
+                autoCompleteJS.value = selection;
                 document.getElementById('airport-hidden').value = airport_code;
                 console.log(document.getElementById('airport-hidden').value)
               }
             }
           }
-        }
-        // let response = this.isConstructor(autoComplete)
-        // console.log('response: ', response)
-        new autoComplete(config);
+        });
       }
       const setStartDate = moment(new Date()).format("D-MMM-YY");
       const setEndDate = moment(new Date()).add(1, 'days').format("D-MMM-YY");

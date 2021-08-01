@@ -1,0 +1,1 @@
+export const url = "https://beta.reservhotel.com/smart_widget_mh/airports.json";

@@ -5,19 +5,84 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Widget Vertical</title>
-  <!-- <link rel="stylesheet" href="./index.css"> -->
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.6/dist/css/autoComplete.min.css"> -->
-  
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.6/dist/css/autoComplete.min.css">
+  <link rel="stylesheet" href="./index.css"> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.6/dist/autoComplete.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/litepicker-polyfills-ie11/dist/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script> -->
+  <!-- <meta content="./libraries.html"> -->
+  <script src="./rh-booking-vertical.js"></script>
 </head>
 <body>
   <div class="wrapper-rh-v">
     <div class="widget-rh-v" id='widget-rh-v'>
     </div>
   </div>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.6/dist/autoComplete.min.js"></script> -->
-  <script src='./rh-booking-vertical.js' type="module"></script>
-  <script src="./index.js" type="module"></script>
-  <script src="./custom.js" type="module"></script>
+
+  <!-- <script>
+    let headTag = document.getElementsByTagName('head')[0], 
+    customCSS = document.createElement('link'),
+    faCSS = document.createElement('link'), 
+    scriptMomentJS = document.createElement('script'), 
+    scriptLitePicker = document.createElement('script'), 
+    scriptLitePicker2 = document.createElement('script'),
+    autocompleteScript = document.createElement('script'),
+    autocompleteCSS = document.createElement('link');
+    customCSS.rel = 'stylesheet';
+    customCSS.href = 'https://cdn.jsdelivr.net/gh/hectorsum/hotel-booking-vertical@rh-v1.0.5/index.css'
+    faCSS.rel = 'stylesheet';
+    faCSS.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css';
+    scriptMomentJS.src = 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js';
+    scriptLitePicker.src = 'https://cdn.jsdelivr.net/npm/litepicker-polyfills-ie11/dist/index.js';
+    scriptLitePicker2.src = 'https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js';
+    autocompleteCSS.href = 'https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.6/dist/css/autoComplete.min.css';
+    autocompleteCSS.rel = 'stylesheet';
+    autocompleteScript.src = 'https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.6/dist/autoComplete.min.js';
+    document.head.appendChild(customCSS);
+    document.head.appendChild(autocompleteCSS);
+    document.head.appendChild(faCSS);
+    document.head.appendChild(scriptMomentJS);
+    document.head.appendChild(autocompleteScript)
+    document.head.appendChild(scriptLitePicker)
+    document.head.appendChild(scriptLitePicker2)
+  </script> -->
+  <!-- <script src="./index.js" type="module"></script> -->
+  <script type="module" defer>
+import Vertical_BookingRH from './index.js';
+new Vertical_BookingRH({
+  tabs: {
+    HA: { //Hotel + Airport
+      aiport: true,
+      checkinout: true,
+      children: true,
+      adults: true,
+      promocode: true,
+      agencygroup: false,
+      button: true,
+      hotels: {
+        '555': 'Hotel 01',
+        'ABC': 'Hotel 02',
+        'DSG': 'Hotel 03',
+      }
+    },
+    HO: { //Hotel Only
+      aiport: false,
+      checkinout: true,
+      children: true,
+      adults: true,
+      promocode: false,
+      agencygroup: false,
+      button: true,
+      hotels: {
+        '555': 'Hotel 01',
+        'ABC': 'Hotel 02',
+        'DSG': 'Hotel 03',
+      }
+    },
+  }
+});
+  </script>
 </body>
 </html>
