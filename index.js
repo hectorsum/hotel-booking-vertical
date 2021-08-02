@@ -263,13 +263,14 @@ export default class Vertical_BookingRH {
         // let config = 
         // let response = this.isConstructor(autoComplete)
         // console.log('response: ', response)
+        const autocompleteInput = document.getElementById('autoComplete')
         new autoComplete({
           placeHolder: "Please enter your airport",
           selector: "#autoComplete",
           data: {
             src: async (query) => {
               try {
-                const source = await fetch('https://www.reservhotel.com/win/owa/ibe5.get_airport_json?p_search=');
+                const source = await fetch(`https://www.reservhotel.com/win/owa/ibe5.get_airport_json?p_search=${autocompleteInput.value}`);
                 const airports = await source.json();
                 console.log('airports: ',airports)
                 return airports;
