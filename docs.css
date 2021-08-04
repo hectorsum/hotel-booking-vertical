@@ -1,0 +1,39 @@
+.body-widget-rh-v, .body-widget-rh-h{
+  display: flex;
+}
+.description-rh-v, .description-rh-h{
+  padding: 1rem;
+  border: 1px solid #ccc;
+  background-color: rgba(206, 240, 198, 0.438);
+  max-height: 100vh;
+  width: 50%;
+  font-family: "DM Sans", sans-serif;
+  overflow-y: scroll;
+}
+
+.description-rh-v::-webkit-scrollbar , .description-rh-h::-webkit-scrollbar{
+   width: 10px;
+}
+
+.description-rh-v::-webkit-scrollbar-track , .description-rh-h::-webkit-scrollbar-track{
+   border-radius: 10px;
+}
+
+.description-rh-v::-webkit-scrollbar-thumb , .description-rh-h::-webkit-scrollbar-thumb{
+   border-radius: 5px;
+   background-color: rgb(129, 126, 126);
+}
+.option-table{
+  background-color: #f0f0f0;
+  width: 100%;
+}
+.option-table thead th, .option-table tbody td{
+  padding: 1rem;
+  border:1px solid #ccc;
+}
+.wrapper-rh-v, .wrapper-rh-h{
+  width: 50%;
+}
+.widget-rh-v, .widget-rh-h{
+  width: 60%;
+}
