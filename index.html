@@ -5,14 +5,148 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Widget Vertical</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.2.0/build/styles/default.min.css">
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.2.0/build/highlight.min.js"></script>
+  <!-- and it's easy to individually load additional languages -->
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.2.0/build/languages/go.min.js"></script>
+  
   <script src="./rh-booking-vertical.js"></script>
+  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="./docs.css">
 </head>
-<body>
+<body class="body-widget-rh-v">
+  <div class="description-rh-v">
+    <h1>Booking Vertical Widget</h1>
+    <hr>
+    <p>To use this widget you must set it up with these options according your needs</p>
+    <h3>Usage</h3>
+    <hr>
+    <p>Set this cdn script at the end of your <b>&lt;head></b> section from your HTML page in order to install some dependencies.</p>
+    <pre>
+      <code class="language-javascript">
+        &lt;script src='https://cdn.jsdelivr.net/gh/hectorsum/hotel-booking-vertical@rh-v1.0.11/rh-booking-vertical.js'></script>
+      </code>
+    </pre>
+    <p>After setting up the cdn, you should paste this HTML code wherever you want the widget to be set.</p>
+    <pre>
+      <code class="language-html">
+        &lt;div class="wrapper-rh-v"> <br>
+        &nbsp; &lt;div class="widget-rh-v" id='widget-rh-v'> <br>
+        &nbsp; &lt;/div> <br>
+        &lt;/div>
+      </code>
+    </pre>
+    <p>Lastly, you should import the widget inside a script tag and set the options you want.</p>
+    <pre>
+      <code class="language-javascript">
+        &lt;script type="module"> <br>
+        &nbsp; import Vertical_BookingRH from 'https://cdn.jsdelivr.net/gh/hectorsum/hotel-booking-vertical@rh-v1.0.12/index.js';<br>
+        &nbsp; new Vertical_BookingRH({
+          tabs: {
+            HA:{
+
+            },
+            HO:{
+              
+            }
+          }
+        }) <br>
+        &lt;/script>
+      </code>
+    </pre>
+    <h3>Options</h3>
+    <hr>
+    <p>These options are available to be set inside HA or HO which means "Hotel + Air" and "Hotel Only" respectively, some of them are mandatory such as "button" option and some are not.</p>
+    <table class="option-table">
+      <thead>
+        <th>Option</th>
+        <th>Type</th>
+        <th>Description</th>
+      </thead>
+      <tr>
+        <td>aiport</td>
+        <td>Boolean</td>
+        <td>This will set up the Airport input and will <b>only</b> be available in HA (Hotel + Air) Tab</td>
+      </tr>
+      <tr>
+        <td>checkinout</td>
+        <td>Boolean</td>
+        <td>A datepicker will be set wherever you assigned either HA or HO tab</td>
+      </tr>
+      <tr>
+        <td>children</td>
+        <td>Boolean</td>
+        <td>A dropdown field will be set to pick the number of children</td>
+      </tr>
+      <tr>
+        <td>adults</td>
+        <td>Boolean</td>
+        <td>A dropdown field will be set to pick the number of adults</td>
+      </tr>
+      <tr>
+        <td>promocode</td>
+        <td>Boolean</td>
+        <td>This will set up an input field where the user will be to type any promocode if needed which is not going to be mandatory</td>
+      </tr>
+      <tr>
+        <td>agencygroup</td>
+        <td>Boolean</td>
+        <td>This will set up an input field where the user will be to type any promocode if needed which is not going to be mandatory as well</td>
+      </tr>
+      <tr>
+        <td>button</td>
+        <td>Boolean</td>
+        <td>This will set up the "Find Rates" button if it is set to "true"</td>
+      </tr>
+      <tr>
+        <td>hotels</td>
+        <td>Object</td>
+        <td>The object type will receive the hotel URL as the <b>key</b> and the hotel name as the <b>value</b>. If it is passed a hotel only ,an input type <b>hidden</b> will be set storing the <b>hidden</b> that was set. Otherwise, if there is more than one hotel, a dropdown will be set in order to show the hotels you set.</td>
+      </tr>
+    </table>
+    <h3 style="margin-top: 1rem;">Example</h3>
+    <hr>
+    <p>Full live example as you can see at the right</p>
+    <pre>
+      <code class="language-js">
+        new Vertical_BookingRH({
+          tabs: {
+            HA: { //Hotel + Airport
+              aiport: true,
+              checkinout: true,
+              children: true,
+              adults: true,
+              promocode: true,
+              agencygroup: true,
+              button: true,
+              hotels: { //Input type hidden will be set
+                "https://www.reservhotel.com/win/owa/ibe5.main?hotel=555": "MIAMI RESORT TEST",
+              }
+            },
+            HO: { //Hotel Only
+              aiport: false,
+              checkinout: true,
+              children: true,
+              adults: true,
+              promocode: false,
+              agencygroup: false,
+              button: true,
+              hotels: { //A dropdown will be set
+                "https://www.reservhotel.com/win/owa/ibe5.main?hotel=555": "MIAMI RESORT TEST",
+                "https://www.reservhotel.com/win/owa/ibe5.main?hotel=556": "THE GRAND AT MOON PALACE TEST",
+              }
+            },
+          }
+        });
+      </code>
+    </pre>
+  </div>
   <div class="wrapper-rh-v">
     <div class="widget-rh-v" id='widget-rh-v'>
     </div>
   </div>
-  <script type="module" defer>
+  <script>hljs.highlightAll();</script>
+  <script type="module">
     import Vertical_BookingRH from './index.js';
     new Vertical_BookingRH({
       tabs: {
@@ -22,12 +156,10 @@
           children: true,
           adults: true,
           promocode: true,
-          agencygroup: false,
+          agencygroup: true,
           button: true,
           hotels: {
-            '555': 'Hotel 01',
-            'ABC': 'Hotel 02',
-            'DSG': 'Hotel 03',
+            "https://www.reservhotel.com/win/owa/ibe5.main?hotel=555": "MIAMI RESORT TEST",
           }
         },
         HO: { //Hotel Only
@@ -39,9 +171,8 @@
           agencygroup: false,
           button: true,
           hotels: {
-            '555': 'Hotel 01',
-            'ABC': 'Hotel 02',
-            'DSG': 'Hotel 03',
+            "https://www.reservhotel.com/win/owa/ibe5.main?hotel=555": "MIAMI RESORT TEST",
+            "https://www.reservhotel.com/win/owa/ibe5.main?hotel=556": "THE GRAND AT MOON PALACE TEST",
           }
         },
       }
