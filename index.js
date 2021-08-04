@@ -278,7 +278,9 @@ export default class Vertical_BookingRH {
             keys: ["value", "label"],
             cache: false,
             filter: (list) => {
-              return list;
+              //removing duplicates
+              const unique = [...new Map(list.map(item => [item['value'], item])).values()]
+              return unique;
             }
           },
           resultsList: {
