@@ -478,7 +478,7 @@ export default class Vertical_BookingRH {
     let promoCodeDiv = document.createElement('div');
     promoCodeDiv.className = 'form__group field col'
     promoCodeDiv.innerHTML = `
-      <input type="text" class="form__field" id="promocode-${tabInitials}" placeholder="Promo Code" autocomplete="off">
+      <input type="text" name="PC" class="form__field" id="promocode-${tabInitials}" placeholder="Promo Code" autocomplete="off">
       <label for="promocode" class="form__label">Promo Code</label>
     `;
     return promoCodeDiv;
@@ -488,7 +488,7 @@ export default class Vertical_BookingRH {
     let promoCodeDiv = document.createElement('div');
     promoCodeDiv.className = 'form__group field col'
     promoCodeDiv.innerHTML = `
-      <input type="text" name="agencygroup" class="form__field" id="agencygroup-${tabInitials}" placeholder="Agency/Group" autocomplete="off">
+      <input type="text" name="AFF" class="form__field" id="agencygroup-${tabInitials}" placeholder="Agency/Group" autocomplete="off">
       <label for="agencygroup-${tabInitials}" class="form__label">Agency/Group</label>
     `;
     return promoCodeDiv;
