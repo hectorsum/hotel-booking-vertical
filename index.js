@@ -250,28 +250,26 @@ export default class Vertical_BookingRH {
           item.addEventListener('click', e => {
             if (e.target.id === 'btnSubmit-HA') {
               const airport = document.getElementById('airport-hidden').value;
-              if (airport === "") {
+              if (!airport) {
                 alert('Please select an airport');
                 return false;
               }
-              document.getElementById('myform_HA_h').submit();
+              document.getElementById('myform_HA_v').submit();
+            }else if (e.target.id === 'btnSubmit-HO'){
+              document.getElementById('myform_HO_v').submit();
             }
           })
         });
       }
       if (this.airport) {
-        // let config = 
-        // let response = this.isConstructor(autoComplete)
-        // console.log('response: ', response)
         new autoComplete({
           placeHolder: "Please enter your airport",
           selector: "#autoComplete",
           data: {
             src: async (query) => {
               try {
-                const source = await fetch('https://www.reservhotel.com/win/owa/ibe5.get_airport_json?p_search=');
+                const source = await fetch(`https://www.reservhotel.com/win/owa/ibe5.get_airport_json?p_search=${query}`);
                 const airports = await source.json();
-                console.log('airports: ',airports)
                 return airports;
               } catch (error) {
                 return error;
@@ -280,20 +278,11 @@ export default class Vertical_BookingRH {
             keys: ["value", "label"],
             cache: false,
             filter: (list) => {
-              // let filtered;
-              // let input;
-              // input = document.querySelector('#autoComplete').value;
-              // if(input.length > 0 && input.length <= 3){
-              //   filtered = list.filter(item => item.key === "AI_ID")
-              // }else if (input.length > 3){
-              //   filtered = list.filter(item => item.key === "AI_NAME")
-              // }
               return list;
             }
           },
           resultsList: {
             element: (list, data) => {
-              // console.log('data: ',data);
               if (!data.results.length) {
                 // Create "No Results" message element
                 const message = document.createElement("div");
@@ -720,23 +709,41 @@ export default class Vertical_BookingRH {
   }
   setHotelInput(tabInitials, value) {
     if (!tabInitials) throw Error('Airport parameter must receive a tab initials. i.e: HO/HA')
+    const hotelid = this.getParameterByName('hotel',value);
     const bodytab = document.getElementById(`myform_${tabInitials}_v`);
     let input = document.createElement("input")
     input.type = 'hidden';
     input.name = 'hotel';
     input.id = `hotels-${tabInitials}-v`;
-    input.value = value;
+    input.value = hotelid;
     bodytab.appendChild(input);
   }
   setOptionTag(tabInitials, hotels) {
     let hotelsTemp = hotels;
     const dropdown = document.getElementById(`hotels-${tabInitials}-v`);
-    for (let i in hotelsTemp) {
+    for (let url in hotelsTemp) {
       var opt = document.createElement('option');
-      opt.value = i;
-      opt.innerHTML = hotelsTemp[i];
-      dropdown.appendChild(opt);
+      const hotelid = this.getParameterByName('hotel',url)
+      if(hotelid){
+        opt.value = hotelid;
+        opt.innerHTML = hotelsTemp[url];
+        dropdown.appendChild(opt);
+      }else{
+        try {
+          throw Error(`Please select the correct hotel url in ${tabInitials}`)
+        } catch (error) {
+          console.log(error)
+        }
+      }
     }
+  }
+  getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
   }
   gotoReservHotel(tabInitials) {
     var aD, dD;
