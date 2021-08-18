@@ -412,6 +412,9 @@ display: none;
   .widget-rh-v{
     width:80%;
   }
+  .widget-rh-v fieldset{
+    padding: 0.5rem;
+  }
   .widget-rh-v .form__group{
     padding: 0;
     padding-top: 15px;
